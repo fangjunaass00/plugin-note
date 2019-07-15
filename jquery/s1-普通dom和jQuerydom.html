@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="font"> 你好啊</div>
+    <div class="font2">喵喵喵</div>
+    <input type="checkbox" value="checkbox" class="check-item">
+    <script src="http://alicdn.herdsric.com/herdsric-tool/jquery.min.js"></script>
+    <script>
+        var dom = document.getElementById("font");
+        console.log(dom.innerHTML);
+        // 使用$()将普通的dom元素包裹起来就可以当做jQuery元素使用
+        var dom1 = $(dom);
+        console.log(dom1.html())
+
+        // 使用[0]或者方法.get方法也可以将jQuery元素换回普通的dom元素
+        var dom2 = dom1[0];
+        console.log(dom2.innerHTML)
+
+        var dom3 = $("div");
+        console.log(dom3.get(0).innerHTML)
+        console.log(dom3.get(1).innerHTML)
+
+        // 两种dom可以混用，各取所长
+        var checkitem = $(".check-item")[0]
+        $(".check-item").click(function () {
+            console.log(">.....");
+            console.log("是否被选中：" + checkitem.checked)
+        })
+    </script>
+</body>
+
+</html>

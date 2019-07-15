@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="title">title</div>
+    <div class="part1">
+        <div class="part2">
+            <div class="part3"></div>
+        </div>
+        <div class="part4">
+            <div class="part3"></div>
+        </div>
+        <div class="part5">
+            part5 部分
+        </div>
+    </div>
+    <script src="http://alicdn.herdsric.com/herdsric-tool/jquery.min.js"></script>
+    <script>
+        // 普通的选择器，比较重要的也就*了
+        $("#title").html("重新刷新标题");
+        $(".part1").addClass("first-part");
+        $("div").css({ border: "1px solid red" })
+        $("*").css({ margin: 0, padding: 0 });
+
+        // 层次选择器
+        // 可以选择part1下面的part2
+        $(".part1 .part2").css({ padding: "20px" });
+
+        // 注意，这里的》只能选择part2，而不能进一步选择part3，即只能选择儿子不能选择孙子
+        $(".part1 > .part2").html("part2 内容")
+
+        // 选择紧跟在part2后面的div
+        $(".part2+div").html("part4 内容")
+        // 并且这种写法和下列等价
+        $(".part2").next("div").html("part4 内容")
+
+        // 选择该元素后面的所有div元素
+        $(".part4~div").css({ color: "red" })
+        // 并且该写法与下面的等价
+        $(".part5").nextAll("div")
+    </script>
+</body>
+
+</html>
